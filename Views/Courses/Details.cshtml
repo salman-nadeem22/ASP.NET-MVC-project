@@ -1,0 +1,51 @@
+﻿@model AptechProject.Models.Courses
+
+<div class="jumbotron jumbotron-fluid text-center" style="background: rgb(5,162,149);background: linear-gradient(172deg, rgba(5,162,149,1) 22%, rgba(45,108,223,1) 48%, rgba(0,13,103,1) 100%);color:lightgrey">
+    <div class="container">
+        <h1 class="display-4">Courses</h1>
+        <h2 class="lead">Details</h2>
+    </div>
+</div>
+
+<div>
+    <h4>Courses</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CourseName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CourseName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.hours)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.hours)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CourseFor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CourseFor)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TotalMarks)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TotalMarks)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

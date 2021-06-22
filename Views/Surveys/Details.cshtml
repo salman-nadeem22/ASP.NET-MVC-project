@@ -1,0 +1,118 @@
+﻿@model AptechProject.Models.Survey
+
+<div class="jumbotron jumbotron-fluid text-center" style="background: rgb(5,162,149);background: linear-gradient(172deg, rgba(5,162,149,1) 22%, rgba(45,108,223,1) 48%, rgba(0,13,103,1) 100%);color:lightgrey">
+    <div class="container">
+        <h1 class="display-4">Survey</h1>
+        <h2 class="lead">Detail</h2>
+    </div>
+</div>
+
+<div>
+
+    <form class="form">
+        <p>Question no 1 : @Html.DisplayFor(model => model.Survey_1)</p>
+        <table>
+            <tr>
+                <td>
+                    <input type="radio" name="Question no 1" /> : @Html.DisplayFor(model => model.Survey_1_option_1)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="radio" name="Question no 1" /> : @Html.DisplayFor(model => model.Survey_1_option_2)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="radio" name="Question no 1" /> : @Html.DisplayFor(model => model.Survey_1_option_3)
+                </td>
+            </tr>
+        </table>
+        <hr />
+
+        <p>Question no 2 : @Html.DisplayFor(model => model.Survey_2)</p>
+        <table>
+            <tr>
+                <td>
+                    <input type="radio" name="Question no 2" /> : @Html.DisplayFor(model => model.Survey_2_option_1)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="radio" name="Question no 2" /> : @Html.DisplayFor(model => model.Survey_2_option_2)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="radio" name="Question no 2" /> : @Html.DisplayFor(model => model.Survey_2_option_3)
+                </td>
+            </tr>
+        </table>
+        <hr />
+
+        <p>Question no 3 : @Html.DisplayFor(model => model.Survey_3)</p>
+        <table>
+            <tr>
+                <td>
+                    <input type="radio" name="Question no 3" /> : @Html.DisplayFor(model => model.Survey_3_option_1)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="radio" name="Question no 3" /> : @Html.DisplayFor(model => model.Survey_3_option_2)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="radio" name="Question no 3" /> : @Html.DisplayFor(model => model.Survey_3_option_3)
+                </td>
+            </tr>
+        </table>
+        <hr />
+
+        <p>Question no 4 : @Html.DisplayFor(model => model.Survey_4)</p>
+        <table>
+            <tr>
+                <td>
+                    <input type="radio" name="Question no 4" /> : @Html.DisplayFor(model => model.Survey_4_option_1)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="radio" name="Question no 4" /> : @Html.DisplayFor(model => model.Survey_4_option_2)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="radio" name="Question no 4" /> : @Html.DisplayFor(model => model.Survey_4_option_3)
+                </td>
+            </tr>
+        </table>
+        <hr />
+
+        <p>Question no 5 : @Html.DisplayFor(model => model.Survey_5)</p>
+        <table>
+            <tr>
+                <td>
+                    <input type="radio" name="Question no 5" /> : @Html.DisplayFor(model => model.Survey_5_option_1)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="radio" name="Question no 5" /> : @Html.DisplayFor(model => model.Survey_5_option_2)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="radio" name="Question no 5" /> : @Html.DisplayFor(model => model.Survey_5_option_3)
+                </td>
+            </tr>
+        </table>
+        <hr />
+        <button type="button" onclick="alert('Thank You For Submission....')" class="btn btn-primary"><span>@Html.ActionLink("Submit", "Index", null, new { @style = "color:white;" })</span></button>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.ID }, new { @class="btn btn-primary" })
+        @Html.ActionLink("Back to List", "Index", null, new { @class="btn btn-primary"})
+
+    </form>
+</div>
+

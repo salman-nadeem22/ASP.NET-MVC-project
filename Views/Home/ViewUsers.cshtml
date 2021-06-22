@@ -1,0 +1,33 @@
+﻿@model IEnumerable<AptechProject.ViewModels.Users_in_Role_ViewModel>
+@{
+    ViewBag.Title = "ViewUsers";
+}
+
+    <div class="jumbotron jumbotron-fluid text-center" style="background: rgb(5,162,149);background: linear-gradient(172deg, rgba(5,162,149,1) 22%, rgba(45,108,223,1) 48%, rgba(0,13,103,1) 100%);color:lightgrey">
+        <div class="container">
+            <h1 class="display-4">Users</h1>
+            <h2 class="lead"></h2>
+        </div>
+    </div>
+
+
+<div class="panel-body">
+    <table class="table table-hover table-bordered table-condensed" id="UsersWithRoles">
+        <thead>
+            <tr>
+                <td><b>Username</b></td>
+                <td><b>Email</b></td>
+                <td><b>Roles</b></td>
+            </tr>
+        </thead>
+        @foreach (var user in Model)
+        {
+            <tr>
+                <td>@user.Username</td>
+                <td>@user.Email</td>
+                <td>@user.Role</td>
+            </tr>
+
+        }
+    </table>
+</div>

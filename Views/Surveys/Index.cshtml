@@ -1,0 +1,65 @@
+﻿@model IEnumerable<AptechProject.Models.Survey>
+@using Microsoft.AspNet.Identity
+@{
+    ViewBag.Title = "Index";
+}
+<div class="jumbotron jumbotron-fluid text-center" style="background: rgb(5,162,149);background: linear-gradient(172deg, rgba(5,162,149,1) 22%, rgba(45,108,223,1) 48%, rgba(0,13,103,1) 100%);color:lightgrey">
+    <div class="container">
+        <h1 class="display-4">Survey</h1>
+        <h2 class="lead">List</h2>
+    </div>
+</div>
+<div class="text-left">
+    @if (User.Identity.IsAuthenticated)
+    {
+        
+        <a href="~/Surveys/Create" class="btn btn-default">Create</a>
+        <a href="~/Winners/Create" class="btn btn-default">Votes</a>
+        <a href="~/Rankings/Index" class="btn btn-default">Rankings</a>
+    }
+    <hr />
+</div>
+@using (Html.BeginForm("Search", "Surveys"))
+{
+    <div class="input-group mb-3">
+        <input type="text" style="height:34px" name="searchBox" id="searchBox" class="form-control col-md-4 col-sm-6 mb-3" placeholder="Survey Name" aria-label="Recipient's username" aria-describedby="basic-addon2">
+        <button type="submit" class="btn btn-default ml-3 pb-2">Search</button>
+    </div>
+}
+
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12 mt-5">
+            <div class="card bg-light mb-3 " style="max-width: 30rem;cursor:pointer">
+                <div class="card-header text-right" style="color:grey"> @Html.DisplayFor(modelItem => item.CreatedBy)</div>
+                <div class="card-body">
+                    <h3 class="card-title">@Html.DisplayFor(modelItem => item.ID): @Html.DisplayFor(modelItem => item.SurveyName)</h3>
+                    <p class="card-text">Click On Take Survey To Take "@Html.DisplayFor(modelItem => item.SurveyName)" Survey.</p>
+                </div>
+                <div class="card-footer">
+
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        if (User.Identity.GetUserName().ToString() == @Html.DisplayFor(modelItem => item.CreatedBy).ToString() || User.IsInRole("admin"))
+                        {
+                            <div>
+                                @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+                                @Html.ActionLink("Delete", "Delete", new { id = item.ID }) |
+                                @Html.ActionLink("Take Survey", "Details", new { id = item.ID })
+                            </div>
+                        }
+                    }
+
+                    @if (User.Identity.GetUserName().ToString() != @Html.DisplayFor(modelItem => item.CreatedBy).ToString())
+                    {
+                        if (!User.IsInRole("admin"))
+                        {
+                            @Html.ActionLink("Take Survey", "Details", new { id = item.ID })
+                        }
+                    }
+                </div>
+            </div>
+        </div>
+    }
+</div>

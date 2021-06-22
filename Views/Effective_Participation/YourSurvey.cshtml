@@ -1,0 +1,32 @@
+﻿@model IEnumerable<AptechProject.Models.Survey>
+    @using Microsoft.AspNet.Identity
+
+
+
+<div class="jumbotron jumbotron-fluid text-center" style="background: rgb(5,162,149);background: linear-gradient(172deg, rgba(5,162,149,1) 22%, rgba(45,108,223,1) 48%, rgba(0,13,103,1) 100%);color:lightgrey">
+    <div class="container">
+        <h1 class="display-4">Your Surveys</h1>
+        <h2 class="lead"></h2>
+    </div>
+</div>
+
+<div class="row">
+
+    @foreach (var item in Model)
+    {
+        if (User.Identity.GetUserName().ToString() == item.CreatedBy.ToString())
+        {
+            <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12 mt-5">
+                <div class="card bg-light mb-3 " style="max-width: 30rem;cursor:pointer">
+                    <div class="card-header text-right" style="color:grey"> @Html.DisplayFor(modelItem => item.CreatedBy)</div>
+                    <div class="card-body">
+                        <h3 class="card-title">@Html.DisplayFor(modelItem => item.ID): @Html.DisplayFor(modelItem => item.SurveyName)</h3>
+                        <p class="card-text">Click @Html.ActionLink("here", "Index", "Surveys") to go to the Survey list.<br />Date @Html.DisplayFor(modelItem => item.dateTime)</p>
+                    </div>
+                </div>
+            </div>
+        }
+
+    }
+
+</div>

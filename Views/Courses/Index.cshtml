@@ -1,0 +1,67 @@
+﻿@model IEnumerable<AptechProject.Models.Courses>
+
+
+
+<div class="jumbotron jumbotron-fluid text-center" style="background: rgb(5,162,149);background: linear-gradient(172deg, rgba(5,162,149,1) 22%, rgba(45,108,223,1) 48%, rgba(0,13,103,1) 100%);color:lightgrey">
+    <div class="container">
+        <h1 class="display-4">Courses</h1>
+        <h2 class="lead">List</h2>
+    </div>
+</div>
+
+@if (User.Identity.IsAuthenticated)
+{
+    if (User.IsInRole("admin"))
+    {
+        <hr />
+        <div class="menu-1 mb-5">
+            <button class="btn btn-primary btn-md "><a href="~/Courses/Create" style="color:white; font-weight:200"><span>Create</span></a></button>
+        </div>
+
+    }
+}
+@using (Html.BeginForm("Search", "Courses"))
+{
+
+    <div class="input-group mb-3">
+        <input type="text" style="height:34px" name="searchBox" id="searchBox" class="form-control col-md-4" placeholder="Survey Name" aria-label="Recipient's username" aria-describedby="basic-addon2">
+        <button type="submit" class="btn btn-default ml-3 pb-2">Search</button>
+    </div>
+
+}
+
+
+<div class="row">
+    @foreach (var item in Model)
+    {
+
+        <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12">
+            <div class="card bg-light mb-3 " style="max-width: 30rem;cursor:pointer">
+                <div class="card-header" style="color:grey">Course</div>
+                <div class="card-body">
+                    <h3 class="card-title">@Html.DisplayFor(modelItem => item.CourseName)</h3>
+                    <p class="card-text">Learn how to program in @Html.DisplayFor(modelItem => item.CourseName). Click Details to find out more.</p>
+                </div>
+                <div class="card-footer">
+
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        if (User.IsInRole("admin"))
+                        {
+                            <div>
+                                @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+                                @Html.ActionLink("Delete", "Delete", new { id = item.ID }) | @Html.ActionLink("Details", "Details", new { id = item.ID })
+                            </div>
+                        }
+                    }
+
+                    @if (!User.Identity.IsAuthenticated)
+                    {
+                        @Html.ActionLink("Details", "Details", new { id = item.ID })
+                    }
+                </div>
+            </div>
+        </div>
+
+    }
+</div>

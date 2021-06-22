@@ -1,0 +1,247 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Free HTML5 Website Template by freehtml5.co" />
+    <meta name="keywords" content="free website templates, free html5, free template, free bootstrap, free website template, html5, css3, mobile first, responsive" />
+    <meta name="author" content="freehtml5.co" />
+    <meta property="og:title" content="" />
+    <meta property="og:image" content="" />
+    <meta property="og:url" content="" />
+    <meta property="og:site_name" content="" />
+    <meta property="og:description" content="" />
+    <meta name="twitter:title" content="" />
+    <meta name="twitter:image" content="" />
+    <meta name="twitter:url" content="" />
+    <meta name="twitter:card" content="" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:300,400" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="~/Content/animate.css">
+    <!-- Icomoon Icon Fonts-->
+    <link rel="stylesheet" href="~/Content/icomoon.css">
+    <!-- Bootstrap  -->
+    <link rel="stylesheet" href="~/Content/bootstrap.css">
+
+    <!-- Magnific Popup -->
+    <link rel="stylesheet" href="~/Content/magnific-popup.css">
+
+    <!-- Owl Carousel  -->
+    <link rel="stylesheet" href="~/Content/owl.carousel.min.css">
+    <link rel="stylesheet" href="~/Content/owl.theme.default.min.css">
+
+    <!-- Flexslider  -->
+    <link rel="stylesheet" href="~/Content/flexslider.css">
+
+    <!-- Pricing -->
+    <link rel="stylesheet" href="~/Content/pricing.css">
+
+    <!-- Theme style  -->
+    <link rel="stylesheet" href="~/Content/style.css">
+
+    <!-- Modernizr JS -->
+    <script src="~/Scripts/modernizr-2.6.2.min.js"></script>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <style>
+        ::-webkit-scrollbar {
+            width: 8px;
+            background-color: white;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            border-radius: 3px;
+            background: rgb(5,162,149);
+            background: linear-gradient(172deg, rgba(5,162,149,1) 22%, rgba(45,108,223,1) 48%, rgba(0,13,103,1) 100%);
+        }
+
+        .js-fh5co-nav-toggle {
+            margin-top: 20px
+        }
+    </style>
+</head>
+<body>
+    <script>
+        AOS.init();
+    </script>
+    @using Microsoft.AspNet.Identity
+
+    <div id="page">
+        <nav class="fh5co-nav" role="navigation">
+            <div class="top">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xs-12 text-right">
+                            <p class="site">Call: +01 123 456 7890</p>
+                            <p class="num">Click To Manage @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" }) </p>
+                            <ul class="fh5co-social">
+                                <li><a href="#"><i class="icon-facebook2"></i></a></li>
+                                <li><a href="#"><i class="icon-twitter2"></i></a></li>
+                                <li><a href="#"><i class="icon-dribbble2"></i></a></li>
+                                <li><a href="#"><i class="icon-github"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="top-menu">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xs-2">
+                            <div id="fh5co-logo"><a href="~/Home/Index"><i class="icon-study"></i>ISB<span>.</span></a></div>
+                        </div>
+                        <div class="col-xs-10 text-right menu-1">
+                            <ul>
+                                <li class="#"><a href="index.html">@Html.ActionLink("Home", "Index", "Home")</a></li>
+                                <li><a href="#">@Html.ActionLink("About", "About", "Home")</a></li>
+                                @if (User.Identity.IsAuthenticated)
+                                {
+                                    <li><a href="#">@Html.ActionLink("Survey Board", "Index", "Surveys")</a></li>
+                                    <li><a href="#">@Html.ActionLink("Effective Participation", "Index", "Effective_Participation")</a></li>
+                                    if (User.IsInRole("admin"))
+                                    {
+                                        <li><a href="#">@Html.ActionLink("Teachers", "Index", "Faculties")</a></li>
+                                        <li><a href="#">@Html.ActionLink("Student", "Index", "Students")</a></li>
+                                        <li><a href="#">@Html.ActionLink("Courses", "Index", "Courses")</a></li>
+                                    }
+                                    if (User.IsInRole("faculty,admin"))
+                                    {
+                                        <li><a href="#">@Html.ActionLink("Student", "Index", "Students")</a></li>
+
+                                    }
+                                }
+                                <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                                <li>@Html.ActionLink("FAQ's", "Index", "FAQs")</li>
+                                @if (User.Identity.IsAuthenticated)
+                                {
+                                    if (User.Identity.AuthenticationType == null)
+                                    {
+                                        <li>Your Account is not yet verified</li>
+                                    }
+                                }
+                                @if (!User.Identity.IsAuthenticated)
+                                {
+
+
+                                    <li class="btn-cta"><a href="~/Account/Login"><span>Login</span></a></li>
+                                    <li class="btn-cta"><a href="~/Account/Register"><span>Register</span></a></li>
+
+                                }
+                                else
+                                {
+                                    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+                                    {
+                                        @Html.AntiForgeryToken()
+                                        <li class="btn-cta"><a href="javascript:document.getElementById('logoutForm').submit()"><span>Log off</span></a></li>
+                                    }
+                                }
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </nav>
+
+        <div class="container body-content">
+            @RenderBody()
+            <hr />
+        </div>
+
+        <footer id="fh5co-footer" role="contentinfo" style="background-image: url(images/img_bg_4.jpg);">
+            <div class="overlay"></div>
+            <div class="container">
+                <div class="row row-pb-md">
+                    <div class="col-md-3 fh5co-widget">
+                        <h3>About Education</h3>
+                        <p>Facilis ipsum reprehenderit nemo molestias. Aut cum mollitia reprehenderit. Eos cumque dicta adipisci architecto culpa amet.</p>
+                    </div>
+                    <div class="col-md-2 col-sm-4 col-xs-6 col-md-push-1 fh5co-widget">
+                        <h3>Learning</h3>
+                        <ul class="fh5co-footer-links">
+                            <li>@Html.ActionLink("Course", "Index", "Courses")</li>
+                            <li><a href="#">@Html.ActionLink("Survey", "Index", "Surveys")</a></li>
+                            <li><a href="#">Contact</a></li>
+                            <li><a href="#">Terms</a></li>
+                            <li><a href="#">@Html.ActionLink("Survey Winners", "Index", "Rankings")</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="col-md-2 col-sm-4 col-xs-6 col-md-push-1 fh5co-widget">
+                        <h3>Learn &amp; Grow</h3>
+                        <ul class="fh5co-footer-links">
+                            <li><a href="#">Blog</a></li>
+                            <li><a href="#">Privacy</a></li>
+                            <li><a href="#">Testimonials</a></li>
+                            <li><a href="#">Handbook</a></li>
+                            <li><a href="#">Held Desk</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="col-md-2 col-sm-4 col-xs-6 col-md-push-1 fh5co-widget">
+                        <h3>Engage us</h3>
+                        <ul class="fh5co-footer-links">
+                            <li><a href="#">Marketing</a></li>
+                            <li><a href="#">Visual Assistant</a></li>
+                            <li><a href="#">System Analysis</a></li>
+                            <li><a href="#">Advertise</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="col-md-2 col-sm-4 col-xs-6 col-md-push-1 fh5co-widget">
+                        <h3>Legal</h3>
+                        <ul class="fh5co-footer-links">
+                            <li><a href="#">Find Designers</a></li>
+                            <li><a href="#">Find Developers</a></li>
+                            <li><a href="#">Teams</a></li>
+                            <li><a href="#">Advertise</a></li>
+                            <li><a href="#">API</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <div class="gototop js-top">
+        <a href="#" class="js-gotop"><i class="icon-arrow-up"></i></a>
+    </div>
+
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+    <!-- jQuery Easing -->
+    <script src="~/Scripts/jquery.easing.1.3.js"></script>
+    <!-- Bootstrap -->
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <!-- Waypoints -->
+    <script src="~/Scripts/jquery.waypoints.min.js"></script>
+    <!-- Stellar Parallax -->
+    <script src="~/Scripts/jquery.stellar.min.js"></script>
+    <!-- Carousel -->
+    <script src="~/Scripts/owl.carousel.min.js"></script>
+    <!-- Flexslider -->
+    <script src="~/Scripts/jquery.flexslider-min.js"></script>
+    <!-- countTo -->
+    <script src="~/Scripts/simplyCountdown.js"></script>
+    <!-- Magnific Popup -->
+    <script src="~/Scripts/jquery.magnific-popup.min.js"></script>
+    <script src="~/Scripts/magnific-popup-options.js"></script>
+    <!-- Count Down -->
+    <script src="~/Scripts/simplyCountdown.js"></script>
+    <!-- Main -->
+    <script src="~/Scripts/main.js"></script>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

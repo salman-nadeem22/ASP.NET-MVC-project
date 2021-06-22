@@ -1,0 +1,36 @@
+﻿@model IEnumerable<AptechProject.Models.Effective_Participation>
+    @using Microsoft.AspNet.Identity;
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="jumbotron jumbotron-fluid text-center" style="background: rgb(5,162,149);background: linear-gradient(172deg, rgba(5,162,149,1) 22%, rgba(45,108,223,1) 48%, rgba(0,13,103,1) 100%);color:lightgrey">
+    <div class="container">
+        <h1 class="display-4">Surveys</h1>
+        <h2 class="lead">Discription</h2>
+    </div>
+</div>
+
+<p>
+    @Html.ActionLink("Create New", "Create", null, new { @class="btn btn-default"})
+    @Html.ActionLink("Your Surveys", "YourSurvey", null, new { @class="btn btn-default"})
+</p>
+<hr />
+<div class="row">
+
+    @foreach (var item in Model)
+    {
+    <div class="col-md-8 col-sm-12">
+        <h2>@item.survey.SurveyName</h2>
+        <p>@item.Discription</p>
+        <div class="text-left">
+            <p class="text-right"><b>Created By : @item.survey.CreatedBy</b></p>
+            @Html.ActionLink("Edit ", "Edit", new { id = item.Id })|
+            @Html.ActionLink(" Delete", "Delete", new { id = item.Id })
+        </div>
+    </div>
+       
+    }
+
+</div>

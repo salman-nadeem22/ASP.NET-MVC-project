@@ -1,0 +1,54 @@
+﻿<div class="jumbotron jumbotron-fluid text-center" style="background: rgb(5,162,149);background: linear-gradient(172deg, rgba(5,162,149,1) 22%, rgba(45,108,223,1) 48%, rgba(0,13,103,1) 100%);color:lightgrey">
+    <div class="container">
+        <h1 class="display-4">Contact Us</h1>
+        <h2 class="lead"></h2>
+    </div>
+</div>
+
+
+<h2>Contact US.</h2>
+<div class="row">
+    <div class="col-md-4 mt-4">
+        <address>
+            Hi 👋 What's your name?<br />
+            Redmond, WA 98052-6399<br />
+            <abbr title="Phone">P:</abbr>
+            425.555.0100
+        </address>
+        <address>
+            <strong>Support:</strong>   <a href="mailto:Support@example.com">Support@example.com</a><br />
+            <strong>Marketing:</strong> <a href="mailto:Marketing@example.com">Marketing@example.com</a>
+        </address>
+    </div>
+
+    <div class="col-md-8">
+        <form>
+            <div class="form-group">
+                <label for="exampleFormControlInput1">Email address</label>
+                <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlSelect1">What You Want To Know About?</label>
+                <select class="form-control" id="exampleFormControlSelect1">
+                    <option>Institute</option>
+                    <option>About Our Team</option>
+                    <option>Our Developers</option>
+                    <option>Other</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="exampleFormControlTextarea1">Discription.</label>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+            </div>
+            <div id="sendBtnC" onclick="alert('Thank You For Contacting Us.');" style="display:inline">
+                @Html.ActionLink("Send", "Index", "Home", new { @class = "btn btn-default" })
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+
+

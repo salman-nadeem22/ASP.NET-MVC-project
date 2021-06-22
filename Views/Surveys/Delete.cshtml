@@ -1,0 +1,216 @@
+﻿@model AptechProject.Models.Survey
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Survey</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.SurveyName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SurveyName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreatedBy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreatedBy)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StudentID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StudentID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Survey_1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Survey_1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Survey_1_option_1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Survey_1_option_1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Survey_1_option_2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Survey_1_option_2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Survey_1_option_3)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Survey_1_option_3)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Survey_2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Survey_2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Survey_2_option_1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Survey_2_option_1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Survey_2_option_2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Survey_2_option_2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Survey_2_option_3)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Survey_2_option_3)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Survey_3)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Survey_3)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Survey_3_option_1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Survey_3_option_1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Survey_3_option_2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Survey_3_option_2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Survey_3_option_3)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Survey_3_option_3)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Survey_4)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Survey_4)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Survey_4_option_1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Survey_4_option_1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Survey_4_option_2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Survey_4_option_2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Survey_4_option_3)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Survey_4_option_3)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Survey_5)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Survey_5)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Survey_5_option_1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Survey_5_option_1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Survey_5_option_2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Survey_5_option_2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Survey_5_option_3)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Survey_5_option_3)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.dateTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dateTime)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

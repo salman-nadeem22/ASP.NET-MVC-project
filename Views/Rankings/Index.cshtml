@@ -1,0 +1,28 @@
+﻿@model IEnumerable<AptechProject.Models.Ranking>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+<div class="row">
+    @foreach (var item in Model)
+    {
+    <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12">
+        <div class="card border-info mb-3" style="max-width: 30rem;">
+            <div class="card-header">@Html.DisplayFor(modelItem => item.Rank): @Html.DisplayFor(modelItem => item.StudentName) </div>
+            <div class="card-body text-info">
+                <h4 class="card-title">Congratulations.</h4>
+            </div>
+            <div class="card-footer">
+                <p class="card-text">Your Prize Will be @Html.DisplayFor(modelItem => item.Prize)</p>
+            </div>
+        </div>
+    </div>
+    }
+</div>
